@@ -5,18 +5,58 @@
         Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
     -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com https://api.random.org 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
         
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script src="scripts/jquery-2.2.1.min.js"></script>
+        <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+        <script src="scripts/randomNG.js"></script>
         <title>conceptApp</title>
     </head>
     <body>
-        <div class="app">
-            <p id="deviceready" class="event">Connecting to Device</p>
+        <div data-role="page" id="RNG-page">
+            <div data-role="header" class="header">
+                <h1 id="app-title">RNG APP</h1>
+                <a href="/" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-home ui-btn-icon-notext" rel="external">Home</a>
+            </div>
+
+            <div role="main" class="ui-content">
+                <form>
+                    <label for="max-Value">Type the maximum value of the RNG</label>
+                    <input id="max-value-input" name="max-Value" placeholder="eg. 100" required />
+                    <button id="get-random-btn" data-role="button" data-icon="search">GET RANDOM</button>
+                </form>
+
+                <ul id="random-org-response" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow not-displayed">
+                    <li data-role="list-divider" id="title" class="ui-li-divider ui-bar-a"></li>
+                    <li><span id="summary"><span id="random-number"></span> YES <img src="" /></span></li>
+                    <li>Competion date and time: <span id="completion-time"></span> </li>
+                    <li>bits Used: <span id="bits-used"></span> bits</li>
+                    <li>bits left: <span id="bits-left"></span> bits</li>
+                    <li>request left: <span id="request-left"></span> requests</li>
+                    <li>advisory delay: <span id="advisory-delay"></span> secs</li>
+                </ul>
+
+                <div id="error-msg" class="not-displayed">
+                </div>
+
+            </div>
+
+            <footer data-role="footer" data-position="fixed">
+                <h4>Visual Studio Tools for Cordova RNG DEMO</h4>
+            </footer>
+
         </div>
+
+        
+        <!--<div class="app">
+            <p id="deviceready" class="event">Connecting to Device</p>
+            <p>Hello world!!!! </p>
+        </div>-->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
         <script type="text/javascript" src="scripts/index.js"></script>

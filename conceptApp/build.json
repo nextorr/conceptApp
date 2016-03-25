@@ -1,10 +1,10 @@
 {
      "android": {
          "release": {
-             "keystore": "",
-             "storePassword": "",
-             "alias": "",
-             "password" : "",
+             "keystore": "E:\\Nestor\\Documents\\AndroidDev\\nextorr-app-key.keystore",
+             "storePassword": "Haloforme1!",
+             "alias": "nextorrApp",
+             "password" : "Haloforme1!",
              "keystoreType": ""
          }
      }
